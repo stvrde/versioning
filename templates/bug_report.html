@@ -1,0 +1,40 @@
+{% extends 'base_template.html' %}
+
+{% block main_content %}
+
+
+    <div style="min-height: 70vh;" class="container margin-top-md">
+        
+        <div class="row">
+
+            <div class="col"></div>
+
+            <div class="col-6">
+                <form method='POST' action=''>
+                    {% csrf_token %}
+            
+                    <div class="mb-3">
+                        <label class="form-label">{{form.version.label}}</label>
+                        {{form.version}}
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">{{form.description.label}}</label>
+                        {{form.description}}
+                    </div>
+
+    
+                    <button class="btn btn-primary" type="submit">Report a Bug</button>
+    
+                </form>
+            </div>
+
+
+            <div class="col"></div>
+            
+            
+        </div>
+        
+    </div>
+
+{% endblock %}

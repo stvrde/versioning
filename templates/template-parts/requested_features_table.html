@@ -1,0 +1,43 @@
+
+<div style="min-height: 70vh;" class="container margin-top-sm margin-bottom-sm">
+
+    <div class="row">
+        <table id="reqtable_id" class="display">
+            <thead>
+                <tr>
+                    <th>Software</th>
+                    <th>Requested feature</th>
+                    <th>Requested by</th>
+                    <th>Implemented</th>
+                    <th>Actions</th>
+   
+
+                </tr>
+            </thead>
+            <tbody>
+
+                {% for software in softwares %}
+                    {% if software.requested_features.exists %}
+                        {% for feature in software.requested_features.all %}
+                            <tr>
+                                <td>{{software.name}}</td>
+                                <td>{{feature.feature.name}}</td>
+                                <td>{{feature.user}}</td>
+                                <td>{{feature.accepted}}</td>
+                                <td>
+                                    {% if not feature.accepted %}
+                                        <a href="{% url 'requested_feature_remove' feature.pk %}" title="Modify software" class="btn btn-danger small-btn" type="submit">Remove feature</a>
+                                    {% else %}
+                                        <a href="{% url 'software_info' software.pk %}" title="Modify software" class="btn btn-info small-btn" type="submit">Info</a>
+                                    {% endif %}
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% endif %}           
+                {% endfor %}
+
+            </tbody>
+        </table>
+        
+    </div>
+</div>

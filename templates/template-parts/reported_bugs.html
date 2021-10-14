@@ -1,0 +1,54 @@
+
+
+{% if request.user.is_authenticated  and bugs %}
+
+    <div class="container margin-top-sm margin-bottom-sm">
+
+        <div class="row">
+            <div class="homepage-section">
+                <h2>Latest bug report</h2>
+                <hr>
+            </div>
+
+            <table id="bugs_id" class="display">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Software</th>
+                        <th>Version</th>
+                        <th>Reported by</th>
+                        <th>Fixed</th>
+                        <th>Actions</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    {% for bug in bugs %}
+                        <tr>
+                            <td>{{bug.description}}</td>
+                            <td>{{bug.version.all.first.software.name}}</td>
+                            <td>{{bug.version.all.first}}</td>
+                            <td>{{bug.reported_by}}</td>
+                            <td>{{bug.fixed}}</td>
+                            
+
+                            <td>
+                                
+                                {% if bug.version.all.first.software.owner == request.user  or request.user.is_superuser  or request.user in bug.version.all.first.software.team.all %}
+                                
+                                    <a href="{% url 'bug_remove' bug.pk %}" title="Modify software" class="btn btn-danger small-btn" type="submit">Remove bug</a>
+                                {% endif %}
+                            
+                                
+                            </td>
+
+                        </tr>
+                    {% endfor %}
+
+                </tbody>
+            </table>
+            
+        </div>
+    </div>
+{% endif %}

@@ -1,0 +1,73 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Versioning App</title>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+        <link rel="stylesheet" href="{% static 'bootstrap-5.0.0-beta3/dist/css/bootstrap.min.css' %}"/>
+        <link rel="stylesheet" href="{% static 'css/datatables.min.css' %}"/>
+        
+    </head>
+    <body>
+        
+        {% include 'template-parts/nav-bar.html' %}
+       
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li class="{{ message.tags }}"><b>{{ message }}</b></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <style type="text/css">
+            .main{
+                min-height: 100vh;
+                height: 100%;
+            }    
+        </style>
+            <div class="main">
+            {% block main_content%}
+                <div>Insert Content</div>
+            {% endblock %}
+        </div>
+        <div class="footer">
+            <div class="footer-wrapper">
+                <p>Versioning App&nbsp;</p>
+                 - 
+                <p>&nbsp;2021 All rights reserved</p>
+            </div>
+        </div>
+        
+    </body>
+
+    <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
+    <script src="{% static 'js/datatables.min.js' %}"></script>
+    <script src="{% static 'bootstrap-5.0.0-beta3/dist/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+
+
+    <script>
+        $(document).ready( function () {
+            $('#table_id').DataTable({
+                "pageLength": 4
+            });
+        } );
+        $(document).ready( function () {
+            $('#bugs_id').DataTable({
+                "pageLength": 4
+            });
+        } );
+        $(document).ready( function () {
+            $('#reqtable_id').DataTable({
+                "pageLength": 15
+            });
+        } );
+    </script>
+
+</html>

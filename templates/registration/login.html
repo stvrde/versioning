@@ -1,0 +1,44 @@
+{% extends 'base_template.html' %}
+
+{% block main_content %}
+
+
+    <div class="container margin-top-md">
+
+        <div class="row">
+
+            <div class="col"></div>
+
+            <div class="col-6">
+
+                <form method="POST" class="form-group" action="" >
+                    {% csrf_token %}
+
+                    <div class="mb-3">
+                        <label class="form-label">{{form.username.label}}</label>
+                        {{form.username}}
+                    </div>
+    
+                    <div class="mb-3">
+                        <label class="form-label">{{form.password.label}}</label>
+                        {{form.password}}
+                    </div>
+    
+    
+                    <button class="btn btn btn-success" type="submit"> Login</button>
+                    <!-- <a  href="{% url 'register' %}" class="btn btn-primary" type="submit"> Register</a> -->
+                </form>
+
+                
+                
+            </div>
+
+
+            <div class="col"></div>
+            
+            
+        </div>
+        
+    </div>
+
+{% endblock %}

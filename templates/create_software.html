@@ -1,0 +1,59 @@
+{% extends 'base_template.html' %}
+
+{% block main_content %}
+
+
+    <div style="padding:0 0 40px 0" class="container margin-top-md">
+
+        <div class="row">
+
+            <div class="col"></div>
+
+            <div class="col-6">
+                <form method='POST' action="">
+                    {% csrf_token %}
+            
+                    <div class="mb-3">
+                        <label for="{{form.name.id}}" class="form-label">{{form.name.label}}</label>
+                        {{form.name}}
+                    </div>
+    
+                    
+                    <div class="mb-3">
+                        <label for="{{form.price.id}}" class="form-label">{{form.price.label}}</label>
+                        {{form.price}}
+                    </div>
+    
+                    
+                    <div class="mb-3">
+                        <label class="form-label">{{form.features.label}}</label>
+                        {{form.features}}
+                    </div>
+    
+                    <div class="mb-3">
+                        <label class="form-label">{{form.description.label}}</label>
+                        {{form.description}}
+                    </div>
+    
+                    <div class="mb-3">
+                        <label class="form-label">{{form.team.label}}</label>
+                        {{form.team}}
+                    </div>
+
+                    {% if 'edit' in request.path %}
+                        <button class="btn btn-primary" type="submit">Edit software</button>
+                    {% else %}
+                        <button class="btn btn-primary" type="submit">Create new software</button>
+                    {% endif %}
+                </form>
+            </div>
+
+
+            <div class="col"></div>
+            
+            
+        </div>
+        
+    </div>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+[
+    {
+      "model": "software.feature",
+
+      "fields": {
+        "name": "Reliability"
+      }
+    },
+    {
+      "model": "software.feature",
+      "fields": {
+        "name": "Efficiency"
+      }
+    },   {
+        "model": "software.feature",
+  
+        "fields": {
+          "name": "Usability"
+        }
+      },
+      {
+        "model": "software.feature",
+        "fields": {
+          "name": "Maintainability"
+        }
+      },   {
+        "model": "software.feature",
+  
+        "fields": {
+          "name": "Portability"
+        }
+      },
+      {
+        "model": "software.feature",
+        "fields": {
+          "name": "Adaptability"
+        }
+      }
+  ]

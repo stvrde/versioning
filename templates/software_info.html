@@ -1,0 +1,68 @@
+{% extends 'base_template.html' %}
+{% load static %}
+
+{% block main_content %}
+
+
+<div class="welcome-title">
+    <h1>{{software.name}}</h1>
+    <h4>Latest version: {{software.latest_version}}</h4>
+    <h4>Price: {{software.price}} USD</h4>
+    <small>{{software.description}}</small>
+</div>
+
+
+    <img src="{% static 'img/2.jpg' %}" class="w3-round w-100 " height="400"  alt="..." >
+
+
+
+
+
+
+
+<div class="container margin-top-sm margin-bottom-sm">
+
+    <div class="row">
+        <table id="table_id" class="display">
+            <thead>
+                <tr>
+                    <th>Software</th>
+                    <th>Version</th>
+                    <th>Description</th>
+                    <th>Price</th>
+                    <th>Features</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                {% for version in software.versions.all %}
+                    <tr>
+                        <td>{{software}}</td>
+                        <td>{{version}}</td>
+                        <td>{{version.description}}</td>
+                        <td>{{version.price}}</td>
+                        <td>{{version.feature_list|join:", "}}</td>
+
+                        <td>
+                            
+                            {% if user.is_authenticated and software.owner == request.user  or request.user.is_superuser %}
+                                <a href="{% url 'edit_version' version.pk %}" title="Modify software" class="btn btn-primary small-btn" type="submit">Modify</a>
+                                
+                                {% if not software.latest_version == version.version %}
+                                    <a href="{% url 'delete_version' version.pk %}" title="Delete software" class="btn btn-danger small-btn" type="submit">Delete</a>
+                                {% endif %}
+                                
+                            {% endif %}
+
+                        </td>
+                    </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+        
+    </div>
+</div>
+
+{% endblock %}
