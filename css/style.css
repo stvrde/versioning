@@ -1,0 +1,71 @@
+body {
+  overflow-x: hidden;
+}
+
+.carousel-item {
+  height: 80vh;
+}
+
+.welcome-title {
+  position: absolute;
+  z-index: 5;
+  color: white;
+  width: 40%;
+  left: 30%;
+  top: 12%;
+}
+.welcome-title h1 {
+  font-size: 100px;
+}
+.welcome-title small {
+  font-size: 18px;
+  font-style: italic;
+}
+
+.margin-top-md {
+  margin-top: 100px;
+}
+
+.margin-top-sm {
+  margin-top: 50px;
+}
+
+.margin-bottom-sm {
+  margin-bottom: 50px;
+}
+
+.auth-links {
+  text-decoration: none;
+  color: white;
+}
+.auth-links:hover {
+  color: #e6dfdf;
+}
+
+.small-btn {
+  font-size: 12px !important;
+  padding: 2px 5px !important;
+}
+
+.homepage-section {
+  padding-bottom: 30px;
+}
+
+.footer {
+  width: 100%;
+  height: 100px;
+  background: black;
+  position:relative;
+  bottom: 0;
+}
+
+.footer-wrapper {
+  display: flex;
+  color: rgba(201, 198, 198, 0.685);
+  position: relative;
+  bottom:0;
+  padding: 30px 0;
+  left: 42%;
+}
+
+/*# sourceMappingURL=style.css.map */
